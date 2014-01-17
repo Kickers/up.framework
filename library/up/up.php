@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/core/core.php';
 
+up::init( dirname(__FILE__) );
+
 /**
  * Main class up
  *
