@@ -60,8 +60,11 @@ final class request
 
 	public function __get( $var )
 	{
-		if ( isset( $this->$var ) ) return $this->$var;
-		if ( !in_array( $var, self::$initVars ) ) return null;
+		if ( isset( $this->$var ) )
+			return $this->$var;
+
+		if ( !in_array( $var, self::$initVars ) )
+			throw new exception( 'Unknown request source ' . $var );
 
 		$this->{'__init' . $var}();
 
