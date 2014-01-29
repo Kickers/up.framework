@@ -26,14 +26,15 @@ final class request
 	public $session;
 
 	private static $initVars = array(
-		  'session'
+		  'arg'
 		, 'cookie'
-		, 'post'
-		, 'query'
 		, 'delete'
-		, 'put'
-		, 'header'
+		, 'env'
 		, 'files'
+		, 'get'
+		, 'header'
+		, 'put'
+		, 'session'
 	);
 
 	private static $instance;
