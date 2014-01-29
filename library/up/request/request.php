@@ -19,6 +19,10 @@ final class request
 	 */
 	public $cookie;
 	public $files;
+
+	/**
+	 * @var \up\request\source\session
+	 */
 	public $session;
 
 	private static $initVars = array(
