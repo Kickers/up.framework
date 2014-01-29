@@ -1,6 +1,8 @@
 <?php
 namespace up\json;
 
+use up\object;
+
 /**
  * Stand-in json function
  * Up\Json\Stand
@@ -202,7 +204,7 @@ class stand
 						}
 						else {
 							$stk = array ( 4 );
-							$obj = new Up\Object();
+							$obj = new object();
 						}
 					}
 
