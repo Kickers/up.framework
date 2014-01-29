@@ -1,4 +1,4 @@
 <?php
-namespace up\exec;
+namespace up\process;
 
 class exception extends \Exception { }

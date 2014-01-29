@@ -1,5 +1,7 @@
 <?php
-namespace up\exec;
+namespace up;
+
+use up\process\exception;
 
 class process
 {
