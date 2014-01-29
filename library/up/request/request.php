@@ -6,7 +6,7 @@ use Up\Request\Data;
 use up\request\exception;
 use Up\Request\Session;
 
-final class request
+class request
 {
 	public $query;
 	public $post;
@@ -52,12 +52,6 @@ final class request
 		return self::$instance ? self::$instance : self::$instance = new self();
 	}
 
-	private function initVars()
-	{
-		foreach( self::$initVars as $var )
-			unset( $this->$var );
-	}
-
 	public function __get( $var )
 	{
 		if ( isset( $this->$var ) )
@@ -76,40 +70,46 @@ final class request
 		$this->$var = $value;
 	}
 
+	private function initVars()
+	{
+		foreach( self::$initVars as $var )
+			unset( $this->$var );
+	}
+
 	/**
 	 * \Up\Request\Data
 	 */
-	public function __initQuery()
+	private function __initQuery()
 	{
 		return $this->query ? $this->query : $this->query = new data( $_GET );
 	}
 
-	public function __initPost()
+	private function __initPost()
 	{
 		return $this->post ? $this->post : $this->post = new data( $_POST );
 	}
 
-	public function __initDelete()
+	private function __initDelete()
 	{
 
 	}
 
-	public function __initPut()
+	private function __initPut()
 	{
 
 	}
 
-	public function __initHeader()
+	private function __initHeader()
 	{
 		
 	}
 
-	public function __initCookie()
+	private function __initCookie()
 	{
-		return $this->cookie ? $this->cookie : $this->cookie = new \up\request\source\cookie( $_COOKIE );
+		return $this->cookie ? $this->cookie : $this->cookie = new source\cookie( $_COOKIE );
 	}
 
-	public function __initFiles()
+	private function __initFiles()
 	{
 		if ( $this->files )
 			return $this->files;
@@ -129,7 +129,7 @@ final class request
 		return $this->files = new Data( $files );
 	}
 
-	public function __initSession()
+	private function __initSession()
 	{
 		return $this->session ? $this->session : $this->session = new \up\request\source\session();
 	}
