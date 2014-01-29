@@ -1,6 +1,8 @@
 <?php
 namespace up;
 
+use up\events\exception;
+
 /**
  * Events class
  * 
