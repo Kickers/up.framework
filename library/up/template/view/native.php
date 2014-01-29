@@ -1,9 +1,11 @@
 <?php
-namespace up\template;
+namespace up\template\view;
 
 use up\events;
+use up\template\exception;
+use up\template\view;
 
-class native extends view\abstracting
+class native extends view
 {
 	const EVENT_NAMESPACE     = 'up.template.native';
 	

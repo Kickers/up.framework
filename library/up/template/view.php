@@ -1,7 +1,7 @@
 <?php
-namespace up\template\view;
+namespace up\template;
 
-abstract class abstracting
+abstract class view
 {
 	protected $registry = array();
 	

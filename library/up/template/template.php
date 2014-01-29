@@ -2,6 +2,7 @@
 namespace up;
 
 use up\template\exception;
+use up\template\view;
 
 class template
 {
@@ -23,7 +24,7 @@ class template
 	 * @param array $templateParams
 	 * @return Template\View\Abstracting
 	 */
-	public function __construct( template\view\abstracting $Template, array $templateParams = array() )
+	public function __construct( view $Template, array $templateParams = array() )
 	{
 		self::init();
 
