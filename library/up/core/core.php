@@ -57,4 +57,12 @@ class core
 
 		self::$storage[$namespace][$name] = $value;
 	}
+
+	public static function notify( $namespace, $eventName, array $args = array(), $callback = null )
+	{
+		if ( class_exists( '\Up\Events' ) )
+		{
+			\up\events::notify( $namespace, $eventName, $args, $callback );
+		}
+	}
 }
