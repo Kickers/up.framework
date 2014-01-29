@@ -13,6 +13,10 @@ final class request
 	public $delete;
 	public $put;
 	public $header;
+
+	/**
+	 * @var \up\request\source\cookie
+	 */
 	public $cookie;
 	public $files;
 	public $session;
@@ -35,6 +39,9 @@ final class request
 		$this->initVars();
 	}
 
+	/**
+	 * @return request
+	 */
 	public static function instance()
 	{
 		return self::$instance ? self::$instance : self::$instance = new self();

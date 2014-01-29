@@ -67,4 +67,12 @@ class core
 
 		return false;
 	}
+
+	/**
+	 * @return request
+	 */
+	public static function request()
+	{
+		return request::instance();
+	}
 }
