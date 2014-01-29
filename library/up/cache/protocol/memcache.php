@@ -1,5 +1,5 @@
 <?php
-namespace up\cache;
+namespace up\cache\protocol;
 
 use up\cache;
 
