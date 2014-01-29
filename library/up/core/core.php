@@ -62,7 +62,9 @@ class core
 	{
 		if ( class_exists( '\Up\Events' ) )
 		{
-			\up\events::notify( $namespace, $eventName, $args, $callback );
+			return \up\events::notify( $namespace, $eventName, $args, $callback );
 		}
+
+		return false;
 	}
 }

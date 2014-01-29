@@ -1,6 +1,8 @@
 <?php
 namespace up;
 
+use up\autoload\exception;
+
 /**
  * Autoload classes
  * 
@@ -27,12 +29,7 @@ class autoload
 	 */
 	public static function autoload( $classname )
 	{
-		$eventCall = \up\events::notify(
-			  self::EVENT_NAMESPACE
-			, self::EVENT_BEFORE_AUTOLOAD
-			, array( $classname )
-			, array( __CLASS__, 'callback' )
-		);
+		$eventCall = \up::notify( self::EVENT_NAMESPACE, self::EVENT_BEFORE_AUTOLOAD , array( $classname ), array( __CLASS__, 'callback' ) );
 			
 		if ( $eventCall === true ) return true;
 		
@@ -59,12 +56,8 @@ class autoload
 		if ( !include_once( $__filename . '.' . $__ext ) ) $return = false;
 		
 		$loadTime = microtime( true ) - $time;
-		
-		\up\events::notify(
-			  self::EVENT_NAMESPACE
-			, self::EVENT_AFTER_AUTOLOAD
-			, array( $__filename . '.' . $__ext, $loadTime )
-		);
+
+		\up::notify( self::EVENT_NAMESPACE, self::EVENT_AFTER_AUTOLOAD, array( $__filename . '.' . $__ext, $loadTime ) );
 		
 		return $return;
 	}
