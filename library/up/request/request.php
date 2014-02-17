@@ -31,9 +31,10 @@ class request
 		, 'delete'
 		, 'env'
 		, 'files'
-		, 'get'
+		, 'query'
 		, 'header'
 		, 'put'
+		, 'post'
 		, 'session'
 	);
 
@@ -81,12 +82,12 @@ class request
 	 */
 	private function __initQuery()
 	{
-		return $this->query ? $this->query : $this->query = new data( $_GET );
+		return isset($this->query) ? $this->query : $this->query = new data( $_GET );
 	}
 
 	private function __initPost()
 	{
-		return $this->post ? $this->post : $this->post = new data( $_POST );
+		return isset($this->post) ? $this->post : $this->post = new data( $_POST );
 	}
 
 	private function __initDelete()
@@ -111,7 +112,7 @@ class request
 
 	private function __initFiles()
 	{
-		if ( $this->files )
+		if ( isset($this->files) )
 			return $this->files;
 
 		$files = array();
@@ -131,6 +132,6 @@ class request
 
 	private function __initSession()
 	{
-		return $this->session ? $this->session : $this->session = new \up\request\source\session();
+		return !empty($this->session) ? $this->session : $this->session = new \up\request\source\session();
 	}
 }

@@ -48,7 +48,7 @@ class autoload
 	
 	public static function inc($__filename, $__ext = 'php')
 	{
-		if ( !file_exists( $__filename . '.' . $__ext ) || !is_readable( $__filename . '.' . $__ext ) ) return false;
+		//if ( !file_exists( $__filename . '.' . $__ext ) || !is_readable( $__filename . '.' . $__ext ) ) return false;
 		
 		$return = true;
 		$time   = microtime( true );

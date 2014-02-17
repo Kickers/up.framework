@@ -19,7 +19,7 @@ class session extends object
 		if( PHP_SAPI == 'cli' )
 			return;
 
-		if( $_REQUEST[ $sessionName ] )
+		if( !empty( $_REQUEST[ $sessionName ] ) )
 			self::setId( $_REQUEST[ $sessionName ] );
 
 		if( array_key_exists( $sessionName, $_COOKIE ) && !$_COOKIE[ $sessionName ] ) {

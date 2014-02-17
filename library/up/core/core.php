@@ -60,7 +60,7 @@ class core
 
 	public static function notify( $namespace, $eventName, array $args = array(), $callback = null )
 	{
-		if ( class_exists( '\Up\Events' ) )
+		if ( class_exists( '\up\events' ) )
 		{
 			return \up\events::notify( $namespace, $eventName, $args, $callback );
 		}
@@ -74,5 +74,27 @@ class core
 	public static function request()
 	{
 		return request::instance();
+	}
+
+	public static function redirect( $url, $callback = null )
+	{
+		$Headers = new \up\header(array(
+			  'location'      => $url
+			, 'create-by'     => 'SingleUp team (http://singleup.net)'
+			, 'time-render'   => sprintf( '%.5f sec', microtime( true ) - UP_START_TIME )
+			, 'X-Powered-By'  => 'ha?'
+			, 'Expires'       => 'Mon, 26 Jul 1997 05:00:00 GMT'
+			, 'Last-Modified' => gmdate("D, d M Y H:i:s") . ' GMT'
+			, 'Cache-Control' => 'no-store, no-cache, must-revalidate'
+			, 'Pragma'        => 'no-cache'
+		));
+
+		$Headers->send( 301 );
+
+		if ( $callback && is_callable( $callback ) ) {
+			$callback();
+		}
+
+		exit;
 	}
 }

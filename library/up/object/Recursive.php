@@ -1,7 +1,10 @@
 <?php
-namespace Up\Object;
+namespace up\object;
 
-class Recursive extends \Up\Object
+use up\object;
+
+
+class recursive extends object
 {
 	public function __construct( $item = array(), $value = null )
 	{
