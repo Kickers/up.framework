@@ -22,14 +22,14 @@ class native extends view
 	public static $buffers = array();
 
 	
-	public function render( $filename, $vars = null )
+	public function render( $__includeFile, $__vars = null )
 	{
-		if ( !$vars )
-			$vars = array();
+		if ( !$__vars )
+			$__vars = array();
 
-		$this->vars = $vars;
+		$this->vars = $__vars;
 
-		$template = function( $__includeFile, $__vars ) {
+		//$template = function( $__includeFile, $__vars ) {
 			extract( $__vars );
 			ob_start();
 				require( $__includeFile );
@@ -38,10 +38,11 @@ class native extends view
 			
 			unset( $__vars, $__includeFile );
 
-			return get_defined_vars();
-		};
+			//return get_defined_vars();
+			$vars = get_defined_vars();
+		//};
 		
-		$vars = $template( $filename, $vars );
+		//$vars = $template( $filename, $vars );
 
 		$content = $vars['__content'];
 
