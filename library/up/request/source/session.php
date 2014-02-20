@@ -53,4 +53,16 @@ class session extends object
 
 		parent::__set( $index, $value );
 	}
+
+	public function __unset( $index )
+	{
+		static::offsetUnset( $index );
+
+		unset($_SESSION[$index]);
+	}
+
+	public function delete($index)
+	{
+		$this->__unset($index);
+	}
 }
