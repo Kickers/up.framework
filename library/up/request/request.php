@@ -1,10 +1,9 @@
 <?php
 namespace up;
 
-use Up\Request\Cookie;
-use Up\Request\Data;
+use up\request\data;
 use up\request\exception;
-use Up\Request\Session;
+use up\request\session;
 
 class request
 {
