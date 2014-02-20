@@ -64,7 +64,10 @@ class object extends \ArrayObject implements \Serializable
 	 */
 	public function __get( $index )
 	{
-		return static::offsetGet( $index );
+		if ( self::__isset($index) )
+			return static::offsetGet( $index );
+
+		return null;
 	}
 	
 	/**
